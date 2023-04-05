@@ -1,16 +1,76 @@
-canvas {
-  width: 800px;
-  height: 800px;
-  border: 5px solid black;
-}
+@import "base.css";
 
 body {
   display: flex;
-  justify-content: center;
+  gap: 20px;
+  justify-content: space-between;
   align-items: center;
+  background-color: gainsboro;
+  padding: 20px;
+}
+
+canvas {
+  width: 800px;
+  height: 800px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.btns {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.color-options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+input#color {
+  background-color: #fff;
 }
 
 .color-option {
   width: 50px;
   height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 5px solid #fff;
+  transition: transform ease-in-out .2s;
+}
+
+.color-option:hover {
+  transform: scale(1.2);
+}
+
+button, label {
+  all: unset;
+  padding: 10px 0;
+  text-align: center;
+  background-color: royalblue;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: opacity linear .1s;
+}
+
+button:hover {
+  opacity: 0.85;
+}
+
+input#text {
+  all: unset;
+  padding: 10px 0;
+  text-align: center;
+  border-radius: 10px;
+  font-weight: 500;
+  background-color: white;
+}
+
+input#file {
+  display: none;
 }

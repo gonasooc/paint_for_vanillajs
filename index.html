@@ -8,10 +8,8 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <canvas></canvas>
-  <input id="line-width" type="range" min="1" max="10" value="5" step="0.1">
-  <input type="color" id="color">
-  <div>
+  <div class="color-options">
+    <input type="color" id="color">
     <div class="color-option" style="background-color: #1abc9c;" data-color="#1abc9c"></div>
     <div class="color-option" style="background-color: #2ecc71;" data-color="#2ecc71"></div>
     <div class="color-option" style="background-color: #3498db;" data-color="#3498db"></div>
@@ -25,11 +23,19 @@
     <div class="color-option" style="background-color: #f1c40f;" data-color="#f1c40f"></div>
     <div class="color-option" style="background-color: #e67e22;" data-color="#e67e22"></div>
   </div>
-  <button id="mode-btn" type="button">Fill</button>
-  <button id="destroy-btn" type="button">Destroy</button>
-  <button id="eraser-btn" type="button">Erase</button>
-  <input type="file" accept="image/*" id="file">
-
+  <canvas></canvas>
+  <div class="btns">
+    <input id="line-width" type="range" min="1" max="10" value="5" step="0.1">  
+    <button id="mode-btn" type="button">🩸 Fill</button>
+    <button id="destroy-btn" type="button">💣 Destroy</button>
+    <button id="eraser-btn" type="button">🗑 Erase</button>
+    <label for="file">
+      🎱 Add Photo
+      <input id="file" type="file" accept="image/*" id="file">
+    </label>
+    <input type="text" id="text" placeholder="Add text here... :)">
+    <button id="save" type="button">🎈 Save image</button>
+  </div>
   <script src="app.js"></script>
 </body>
 </html>
