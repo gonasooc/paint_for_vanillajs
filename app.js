@@ -1,4 +1,5 @@
 
+const fileInput = document.getElementById('file');
 const modeBtn = document.getElementById('mode-btn');
 const destroyBtn = document.getElementById('destroy-btn');
 const eraserBtn = document.getElementById('eraser-btn');
@@ -82,6 +83,17 @@ function onEraserClick() {
   modeBtn.innerText = 'Fill';
 }
 
+function onFileChange(event) {
+  const file = event.target.files[0];
+  const url = URL.createObjectURL(file); // 파일이 가리키는 url을 얻는 방식`
+  console.log(url);
+  const image = new Image(); // new Image()는 html에서 <img src=""></img> 이것과 동일
+  image.src = url;
+  image.onload = function() {
+    ctx.drawImage(image, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+  }
+}
+
 canvas.addEventListener("mousemove", onMove);
 canvas.addEventListener('mousedown', startPainting);
 canvas.addEventListener('mouseup', cancelPainting);
@@ -95,3 +107,4 @@ colorOptions.forEach(color => color.addEventListener('click', onColorClick));
 modeBtn.addEventListener('click', onModeClick);
 destroyBtn.addEventListener('click', onDestroyClick);
 eraserBtn.addEventListener('click', onEraserClick);
+fileInput.addEventListener('change', onFileChange);
