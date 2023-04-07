@@ -1,12 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta http-equiv="Expires" content="3600" />
+  <meta http-equiv="Pragma" content="3600" />
+  <meta http-equiv="cache-control" content="max-age=3600" />
   <title>Meme Maker</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta name="title" content="타이틀" />
+  <meta name="author" content="회사" />
+  <!-- FIXME: 핵심 설명 한 문장 -->
+  <meta name="description" content="상세설명" />
+  <!-- FIXME: 관련 키워드 -->
+  <meta name="keywords" content="키워드" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="유알엘" />
+  <meta property="og:title" content="타이틀" />
+  <meta property="og:description" content="상세설명" />
+  <!-- ! FIXME: full size: 800*800 / content size: 600*315 -->
+  <meta property="og:image" content="./assets/images/favicon/og.png" />
+  <!-- Twitter -->
+  <meta property="twitter:url" content="유알엘" />
+  <meta property="twitter:title" content="타이틀" />
+  <meta property="twitter:description" content="상세설명" />
+  <!-- END Open Graph -->
+
+  <!-- 웹마스터 가이드: 대표 url -->
+  <link rel="canonical" href="유알엘" />
+
+  <!-- favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/images/favicon/apple-touch-icon.png" />
+  <link rel="apple-touch-icon" sizes="57x57" href="./assets/images/favicon/apple-touch-icon-57x57.png" />
+  <link rel="apple-touch-icon" sizes="72x72" href="./assets/images/favicon/apple-touch-icon-72x72.png" />
+  <link rel="apple-touch-icon" sizes="114x114" href="./assets/images/favicon/apple-touch-icon-114x114.png" />
+  <link rel="apple-touch-icon" sizes="144x144" href="./assets/images/favicon/apple-touch-icon-144x144.png" />
+  <link rel="apple-touch-icon" sizes="36x36" href="./assets/images/favicon/android-chrome-36x36.png" />
+  <link rel="apple-touch-icon" sizes="48x48" href="./assets/images/favicon/android-chrome-48x48.png" />
+  <link rel="apple-touch-icon" sizes="72x72" href="./assets/images/favicon/android-chrome-72x72.png" />
+  <link rel="apple-touch-icon" sizes="96x96" href="./assets/images/favicon/android-chrome-96x96.png" />
+  <link rel="apple-touch-icon" sizes="144x144" href="./assets/images/favicon/android-chrome-144x144.png" />
+  <link rel="apple-touch-icon" sizes="192x192" href="./assets/images/favicon/android-chrome-192x192.png" />
+  <link rel="apple-touch-icon" sizes="256x256" href="./assets/images/favicon/android-chrome-256x256.png" />
+  <link rel="apple-touch-icon" sizes="512x512" href="./assets/images/favicon/android-chrome-512x512.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="./assets/images/favicon/favicon-16x16.png" />
+  <link rel="manifest" href="./assets/images/favicon/site.webmanifest" />
+  <link rel="mask-icon" href="./assets/images/favicon/safari-pinned-tab.svg" color="#1D1D1D" />
+  <!-- FIXME: 대표색으로 설정 -->
+  <meta name="msapplication-TileColor" content="#ffffff" />
+  <meta name="theme-color" content="#ffffff" />
+  <!-- 
+        https://realfavicongenerator.net/
+        favicon package 다운로드, 루트 수정
+        assets체크해서 뽑기
+    -->
+  <!-- END favicon -->
+
+  <!-- css link -->
+  <link rel="stylesheet" href="./assets/css/custom/ui.css" />
 </head>
 
 <body>
@@ -35,10 +92,10 @@
       🎱 Add Photo
       <input id="file" type="file" accept="image/*" id="file">
     </label>
-    <input type="text" id="text" placeholder="Add text here... :)">
+    <input type="text" id="text" placeholder="텍스트 입력 후 캔버스에 더블클릭 :)">
     <button id="save" type="button">🎈 Save image</button>
   </div>
-  <script src="app.js"></script>
+  <script src="./assets/js/app.js"></script>
 </body>
 
 </html>

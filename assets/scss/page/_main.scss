@@ -1,5 +1,4 @@
-@import "base.css";
-
+/* =================== main =================== */
 body {
   display: flex;
   gap: 20px;
@@ -7,7 +6,6 @@ body {
   align-items: center;
   background-color: gainsboro;
   padding: 20px;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 canvas {
@@ -49,7 +47,8 @@ input#color {
   transform: scale(1.2);
 }
 
-button, label {
+button,
+label {
   all: unset;
   padding: 10px 0;
   text-align: center;
