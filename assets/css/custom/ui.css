@@ -605,11 +605,12 @@ html.ie .scroll-custom {
 }
 
 /* =================== main =================== */
-body {
+.canvas-all-wrap {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   gap: 20px;
+  min-height: 100vh;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -620,7 +621,7 @@ body {
   padding: 20px;
 }
 
-canvas {
+.paint-canvas {
   width: 800px;
   height: 800px;
   background-color: white;
@@ -677,8 +678,7 @@ input#color {
           transform: scale(1.2);
 }
 
-button,
-label {
+.right-label-btn {
   all: unset;
   padding: 10px 0;
   text-align: center;
@@ -693,11 +693,11 @@ label {
           box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
-button:hover {
+.right-label-btn:hover {
   opacity: 0.85;
 }
 
-input#text {
+.input-text {
   all: unset;
   padding: 10px 0;
   text-align: center;
@@ -706,8 +706,4 @@ input#text {
   background-color: white;
   -webkit-box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
           box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
-}
-
-input#file {
-  display: none;
 }
