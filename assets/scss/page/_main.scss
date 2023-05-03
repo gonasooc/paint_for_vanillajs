@@ -32,8 +32,13 @@
   gap: 10px;
 }
 
-input#color {
+.color-show-input {
   background-color: #fff;
+}
+
+// input type color 안쪽 border 안 보이게 처리
+.color-show-input::-webkit-color-swatch {
+  border: 0;
 }
 
 .color-option {

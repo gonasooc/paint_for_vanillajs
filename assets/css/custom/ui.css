@@ -655,8 +655,12 @@ html.ie .scroll-custom {
   gap: 10px;
 }
 
-input#color {
+.color-show-input {
   background-color: #fff;
+}
+
+.color-show-input::-webkit-color-swatch {
+  border: 0;
 }
 
 .color-option {
