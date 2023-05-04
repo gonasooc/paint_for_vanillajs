@@ -11,8 +11,9 @@ const canvas = document.querySelector('canvas');
 const lineWidth = document.getElementById('line-width');
 const ctx = canvas.getContext("2d"); // 기본적으로 붓과 같은 존재
 
-const CANVAS_WIDTH = 800;
-const CANVAS_HEIGHT = 800;
+const CANVAS_VALUE = vh(90); // 해당 vh 기본값이 width, height 둘 다 적용 -> 정사각형의 canvas
+const CANVAS_WIDTH = CANVAS_VALUE;
+const CANVAS_HEIGHT = CANVAS_VALUE;
 
 canvas.width = CANVAS_WIDTH;
 canvas.height = CANVAS_HEIGHT;
@@ -21,8 +22,14 @@ ctx.lineCap = 'round'; // 라운 끝이 둥근 옵션
 let isPainting = false;
 let isFilling = false;
 
+// vh 계산 함수
+function vh(percent) {
+  var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+  return (percent * h) / 100;
+}
+
 function onMove(event) {
-  if(isPainting) {
+  if (isPainting) {
     ctx.lineTo(event.offsetX, event.offsetY);
     ctx.stroke();
     return;
@@ -60,7 +67,7 @@ function onColorClick(event) {
 }
 
 function onModeClick() {
-  if(isFilling) {
+  if (isFilling) {
     isFilling = false;
     modeBtn.innerText = 'Fill';
   } else {
@@ -70,7 +77,7 @@ function onModeClick() {
 }
 
 function onCanvasClick() {
-  if(isFilling) {
+  if (isFilling) {
     ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
   }
 }
@@ -92,18 +99,18 @@ function onFileChange(event) {
   console.log(url);
   const image = new Image(); // new Image()는 html에서 <img src=""></img> 이것과 동일
   image.src = url;
-  image.onload = function() {
+  image.onload = function () {
     ctx.drawImage(image, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
   }
 }
 
 function onDoubleClick(event) {
   const text = textInput.value.trim(); // 앞뒤 공백 제거
-  if(text.length > 0) {
+  if (text.length > 0) {
     ctx.save(); // 이전 값을 저정하고, 중간에 변경값이 있더라도,
     ctx.lineWidth = 1; // 글자 입력 시 1로 변경
     ctx.font = '68px serif',
-    ctx.fillText(text, event.offsetX, event.offsetY);
+      ctx.fillText(text, event.offsetX, event.offsetY);
     ctx.restore(); // 끝에서 이전 저장값을 복구해줌
   } else {
     alert('텍스트를 입력하세요')
