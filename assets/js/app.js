@@ -109,7 +109,7 @@ function onDoubleClick(event) {
   if (text.length > 0) {
     ctx.save(); // 이전 값을 저정하고, 중간에 변경값이 있더라도,
     ctx.lineWidth = 1; // 글자 입력 시 1로 변경
-    ctx.font = '68px serif',
+    ctx.font = '68px pretendard', // 폰트 변경 시 여기서
       ctx.fillText(text, event.offsetX, event.offsetY);
     ctx.restore(); // 끝에서 이전 저장값을 복구해줌
   } else {
