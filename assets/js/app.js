@@ -1,14 +1,15 @@
-
-const saveBtn = document.getElementById('save');
-const textInput = document.getElementById('text');
-const fileInput = document.getElementById('file');
-const modeBtn = document.getElementById('mode-btn');
-const destroyBtn = document.getElementById('destroy-btn');
-const eraserBtn = document.getElementById('eraser-btn');
-const colorOptions = Array.from(document.getElementsByClassName('color-option'));
-const color = document.getElementById('color');
-const canvas = document.querySelector('canvas');
-const lineWidth = document.getElementById('line-width');
+const saveBtn = document.getElementById("save");
+const textInput = document.getElementById("text");
+const fileInput = document.getElementById("file");
+const modeBtn = document.getElementById("mode-btn");
+const destroyBtn = document.getElementById("destroy-btn");
+const eraserBtn = document.getElementById("eraser-btn");
+const colorOptions = Array.from(
+  document.getElementsByClassName("color-option")
+);
+const color = document.getElementById("color");
+const canvas = document.querySelector("canvas");
+const lineWidth = document.getElementById("line-width");
 const ctx = canvas.getContext("2d"); // 기본적으로 붓과 같은 존재
 
 const CANVAS_VALUE = vh(90); // 해당 vh 기본값이 width, height 둘 다 적용 -> 정사각형의 canvas
@@ -18,13 +19,16 @@ const CANVAS_HEIGHT = CANVAS_VALUE;
 canvas.width = CANVAS_WIDTH;
 canvas.height = CANVAS_HEIGHT;
 ctx.lineWidth = lineWidth.value;
-ctx.lineCap = 'round'; // 라운 끝이 둥근 옵션
+ctx.lineCap = "round"; // 라운 끝이 둥근 옵션
 let isPainting = false;
 let isFilling = false;
 
 // vh 계산 함수
 function vh(percent) {
-  var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+  var h = Math.max(
+    document.documentElement.clientHeight,
+    window.innerHeight || 0
+  );
   return (percent * h) / 100;
 }
 
@@ -69,10 +73,10 @@ function onColorClick(event) {
 function onModeClick() {
   if (isFilling) {
     isFilling = false;
-    modeBtn.innerText = 'Fill';
+    modeBtn.innerText = "Fill";
   } else {
     isFilling = true;
-    modeBtn.innerText = 'Draw';
+    modeBtn.innerText = "Draw";
   }
 }
 
@@ -83,14 +87,14 @@ function onCanvasClick() {
 }
 
 function onDestroyClick() {
-  ctx.fillStyle = 'white';
+  ctx.fillStyle = "white";
   ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 }
 
 function onEraserClick() {
-  ctx.strokeStyle = 'white';
+  ctx.strokeStyle = "white";
   isFilling = false;
-  modeBtn.innerText = 'Fill';
+  modeBtn.innerText = "Fill";
 }
 
 function onFileChange(event) {
@@ -101,7 +105,7 @@ function onFileChange(event) {
   image.src = url;
   image.onload = function () {
     ctx.drawImage(image, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-  }
+  };
 }
 
 function onDoubleClick(event) {
@@ -109,17 +113,17 @@ function onDoubleClick(event) {
   if (text.length > 0) {
     ctx.save(); // 이전 값을 저정하고, 중간에 변경값이 있더라도,
     ctx.lineWidth = 1; // 글자 입력 시 1로 변경
-    ctx.font = '68px pretendard', // 폰트 변경 시 여기서
+    (ctx.font = "68px pretendard"), // 폰트 변경 시 여기서
       ctx.fillText(text, event.offsetX, event.offsetY);
     ctx.restore(); // 끝에서 이전 저장값을 복구해줌
   } else {
-    alert('텍스트를 입력하세요')
+    alert("텍스트를 입력하세요");
   }
 }
 
 function onSaveClick() {
   const url = canvas.toDataURL(); // base64로 인코딩된 이미지를 돌려줌
-  const a = document.createElement('a'); // fake link 생성한 후에 다운로드 세팅
+  const a = document.createElement("a"); // fake link 생성한 후에 다운로드 세팅
   a.href = url; // href에 해당 url 부여
   a.download = "myDrawing.png"; // download 시 설정될 파일명
   a.click();
@@ -127,17 +131,17 @@ function onSaveClick() {
 
 canvas.addEventListener("dblclick", onDoubleClick);
 canvas.addEventListener("mousemove", onMove);
-canvas.addEventListener('mousedown', startPainting);
-canvas.addEventListener('mouseup', cancelPainting);
-canvas.addEventListener('mouseleave', cancelPainting);
-canvas.addEventListener('click', onCanvasClick);
-lineWidth.addEventListener('change', onLineWidthChange);
-color.addEventListener('change', onColorChange);
+canvas.addEventListener("mousedown", startPainting);
+canvas.addEventListener("mouseup", cancelPainting);
+canvas.addEventListener("mouseleave", cancelPainting);
+canvas.addEventListener("click", onCanvasClick);
+lineWidth.addEventListener("change", onLineWidthChange);
+color.addEventListener("change", onColorChange);
 
-colorOptions.forEach(color => color.addEventListener('click', onColorClick));
+colorOptions.forEach((color) => color.addEventListener("click", onColorClick));
 
-modeBtn.addEventListener('click', onModeClick);
-destroyBtn.addEventListener('click', onDestroyClick);
-eraserBtn.addEventListener('click', onEraserClick);
-fileInput.addEventListener('change', onFileChange);
-saveBtn.addEventListener('click', onSaveClick);
+modeBtn.addEventListener("click", onModeClick);
+destroyBtn.addEventListener("click", onDestroyClick);
+eraserBtn.addEventListener("click", onEraserClick);
+fileInput.addEventListener("change", onFileChange);
+saveBtn.addEventListener("click", onSaveClick);
